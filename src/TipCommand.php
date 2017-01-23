@@ -125,10 +125,16 @@ class TipCommand extends Command {
     {
         $amount = $input->getArgument('amount');
 
+
         //If there are no arguments given, run interactive mode and prompt the user
         if (!$amount) {
             $this->runInteractive($input, $output);
             return;
+        }
+
+        if (!is_numeric($amount)) {
+            throw new \RuntimeException("Argument must be numeric!");
+            exit;
         }
 
         //Otherwise, we'll run calculations on some predetermined amounts
