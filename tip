@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ .'/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use Chris\TipCommand;
+
+$application = new Application();
+
+$mainCommand = new TipCommand;
+
+$application->add($mainCommand);
+//$application->setDefaultCommand($mainCommand);
+
+$application->run();
